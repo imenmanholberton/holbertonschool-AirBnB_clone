@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""console"""
 import cmd
 from models.base_model import BaseModel
 
