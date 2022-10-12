@@ -2,7 +2,7 @@
 """"""
 import json
 from models.base_model import BaseModel
-from pathlib import Path
+
 
 class FileStorage:
 
@@ -10,21 +10,21 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        return (FileStorage.__objects)
+        return (self.__objects)
 
     def new(self, obj):
-        FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
+        self.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
         dict = {}
         for key in self.__objects():
             dict[key] = self.__objects[key].to_dict()
-        with open(self.__file_path, "w", ) as file:
+        with open(self.__file_path, 'w', ) as file:
             json.dump(dict, file)
     
     def reload(self):
         try: 
-            with open(self.__file_path, "r") as file:
+            with open(self.__file_path, 'r', encoding="UTF_8") as file:
                 n_dict = json.load(file)
                 for key, value in n_dict.items():
                     attr = eval(value["__class__"])(**value)
