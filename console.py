@@ -2,17 +2,18 @@
 """console"""
 import cmd
 from models.base_model import BaseModel
+import sys
 
 class HBNBCommand(cmd.Cmd):
     """hbnb promt"""
 
-    promt = "(hbnb) "
+    prompt = "(hbnb) "
 
     classe = {'BaseModel': BaseModel}
-    def quit(self, argument):
+    def quit(self, arg):
         exit()
 
-    def EOF(self, argument):
+    def EOF(self, arg):
         print()
         exit()
 
