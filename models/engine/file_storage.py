@@ -17,7 +17,7 @@ class FileStorage:
 
     def save(self):
         dict = {}
-        for key in self.__objects():
+        for key in self.__objects:
             dict[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w', ) as file:
             json.dump(dict, file)
