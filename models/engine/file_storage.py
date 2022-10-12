@@ -17,18 +17,17 @@ class FileStorage:
 
     def save(self):
         dict = {}
-        dict.update(FileStorage.__objects)
-        for key, value in dict.items():
-            dict[key] = value.to_dict()
-        with open(FileStorage.__file_path, "w", ) as file:
+        for key in self.__objects():
+            dict[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, "w", ) as file:
             json.dump(dict, file)
     
     def reload(self):
         try: 
-            if Path("__file_path").exists():
-                with open(FileStorage.__file_path, "r") as file:
-                    n_dict = json.load(file)
+            with open(self.__file_path, "r") as file:
+                n_dict = json.load(file)
                 for key, value in n_dict.items():
-                    FileStorage.__objects[key] = BaseModel(**value)
+                    attr = eval(value["__class__"])(**value)
+                    self.__objects[key] = attr
         except IOError:
             pass
