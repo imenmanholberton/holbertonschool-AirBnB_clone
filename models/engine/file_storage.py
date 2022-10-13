@@ -2,12 +2,12 @@
 """"""
 import json
 from models.base_model import BaseModel
-from models import User
-from models import State
-from models import City
-from models import Amenity
-from models import Place
-from models import Review
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 classe = {'BaseModel': BaseModel}
 
@@ -39,9 +39,8 @@ class FileStorage:
         'State': State, 'City': City, 'Amenity': Amenity, 'Review': Review}
         try: 
             with open(self.__file_path, 'r', encoding="utf-8") as file:
-                n_dict = json.load(file.read())
+                n_dict = json.load(file)
                 for key, value in n_dict.items():
-                    attr = eval(dict[value['__class__']](**value))
-                    self.__objects[key] = attr
+                    self.new(dict[value['__class__']](**value))
         except IOError:
             pass
