@@ -8,6 +8,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import os.path
 
 classe = {'BaseModel': BaseModel}
 
@@ -37,10 +38,8 @@ class FileStorage:
         """method reload of class reload"""
         dict = {'BaseModel':BaseModel, 'User': User, 'Place': Place,
         'State': State, 'City': City, 'Amenity': Amenity, 'Review': Review}
-        try: 
+        if os.path.isfile(self.__file_path):
             with open(self.__file_path, 'r', encoding="utf-8") as file:
                 n_dict = json.load(file)
                 for key, value in n_dict.items():
                     self.new(dict[value['__class__']](**value))
-        except IOError:
-            pass
