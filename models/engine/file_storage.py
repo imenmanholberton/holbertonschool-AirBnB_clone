@@ -19,16 +19,16 @@ class FileStorage:
 
     def all(self):
         """method all of file storage"""
-        return (self.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """method new of file storage"""
-        self.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
+        FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
         """method save of file storage"""
         dict = {}
-        for key, value in self.__objects.items():
+        for key, value in FileStorage.__objects.items():
             dict[key] = value.to_dict()
         with open(self.__file_path, 'w', ) as file:
             json.dump(dict, file)
@@ -38,10 +38,11 @@ class FileStorage:
         dict = {'BaseModel':BaseModel, 'User': User, 'Place': Place,
         'State': State, 'City': City, 'Amenity': Amenity, 'Review': Review}
         try: 
-            with open(self.__file_path, 'r', encoding="utf-8") as file:
-                n_dict = json.loads(file.read())
+            with open(FileStorage.__file_path, 'r', encoding="utf-8") as file:
+                """n_dict = json.loads(file, read())"""
+                n_dict = json.load(file)
                 for key, value in n_dict.items():
                     self.new(dict[value['__class__']](**value))
-        except IOError:
+        except FileNotFoundError:
             pass
     
