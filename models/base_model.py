@@ -37,7 +37,7 @@ class BaseModel:
         
     def to_dict(self):
         """returns a dictionary containing all keys/values"""
-        newdict = dict(self.__dict__)
+        newdict = self.__dict__.copy()
         newdict['__class__'] = self.__class__.__name__
         newdict['updated_at'] = datetime.isoformat(newdict['updated_at'])
         newdict['created_at'] = datetime.isoformat(newdict['created_at'])
