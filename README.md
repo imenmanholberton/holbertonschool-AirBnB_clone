@@ -201,15 +201,6 @@ Updates a class instance based on a given id with a given key/value attribute pa
 
   quit or EOF
 
-## _Supported classes_
-
-- BaseModel
-- User
-- State
-- City
-- Amenity
-- Place
-- Review
 
 ## _Authors_
 
