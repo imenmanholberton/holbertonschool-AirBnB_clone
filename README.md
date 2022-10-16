@@ -81,6 +81,21 @@ Creates a new instance of a given class. The class' ID is printed and the instan
 ### Show
     
     (hbnb) show BaseModel 123-123-123.
+Prints the string representation of a class instance based on a given id.
+    $ ./console.py
+    (hbnb) create User
+    1e32232d-5a63-4d92-8092-ac3240b29f46
+    (hbnb)
+    (hbnb) show User    1e32232d-5a63-4d92-8092-ac3240b29f46
+    [User]  (1e32232d-5a63-4d92-8092-ac3240b29f46)  {'id': '1e32232d-5a63-4d92-8092-a
+    c3240b29f46', 'created_at': datetime.  datetime(2019, 2, 17, 21, 34, 3, 635828), 
+    'updated_at': datetime.datetime(2019, 2, 17, 21, 34, 3, 635828)}
+    (hbnb) 
+    (hbnb) User.show    (1e32232d-5a63-4d92-8092-ac3240b29f46)
+    [User]  (1e32232d-5a63-4d92-8092-ac3240b29f46){'id': '1e32232d-5a63-4d92-8092-a
+    c3240b29f46', 'created_at': datetime.   datetime(2019, 2, 17, 21, 34, 3, 635828), 
+    'updated_at': datetime.datetime(2019, 2,    17, 21, 34, 3, 635828)}
+    (hbnb) 
 
 ### Destroy
 To Delete an instance of an object use "destroy id". ex:
