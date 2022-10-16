@@ -102,6 +102,19 @@ Prints the string representation of a class instance based on a given id.
 To Delete an instance of an object use "destroy id". ex:
 
     (hbnb) destroy BaseMOdel 123-123-123.
+Deletes a class instance based on a given id. The storage file file.json is updated accordingly.
+
+    $ ./console.py
+    (hbnb) create State
+    d2d789cd-7427-4920-aaae-88cbcf8bffe2
+    (hbnb) create Place
+    3e-8329-4f47-9947-dca80c03d3ed
+    (hbnb)
+    (hbnb) destroy State d2d789cd-7427-4920-aaae-88cbcf8bffe2
+    (hbnb) Place.destroy(03486a3e-8329-4f47-9947-dca80c03d3ed)
+    (hbnb) quit
+    $ cat file.json ; echo ""
+    {}
 
 ### All
 
