@@ -116,17 +116,86 @@ Deletes a class instance based on a given id. The storage file file.json is upda
     $ cat file.json ; echo ""
     {}
 
-### All
+### all  or all BaseModel or BaseModel.all()
 
-all Ex:
+Prints the string representations of all instances of a given class. If no class name is provided, the command prints all instances of every class.
 
+    $ ./console.py
+    (hbnb) create BaseModel
+    fce2124c-8537-489b-956e-22da455cbee8
+    (hbnb) create BaseModel
+    450490fd-344e-47cf-8342-126244c2ba99
+    (hbnb) create User
+    b742dbc3-f4bf-425e-b1d4-165f52c6ff81
+    (hbnb) create User
+    8f2d75c8-fb82-48e1-8ae5-2544c909a9fe
+    (hbnb)
+    (hbnb) all BaseModel
+    ["[BaseModel] (450490fd-344e-47cf-8342-126244c2ba99){'updated_at': datetime.da
+    tetime(2019, 2, 17, 21, 45, 5, 963516), 'created_at': datetime.datetime(2019, 2
+    , 17, 21, 45, 5, 963516), 'id': '450490fd-344e-47cf-8342-126244c2ba99'}", "[Bas
+    eModel] (fce2124c-8537-489b-956e-22da455cbee8){'updated_at': datetime.datetime
+    (2019, 2, 17, 21, 43, 56, 899348), 'created_at': datetime.datetime(2019, 2, 17,
+    21, 43, 56, 899348), 'id': 'fce2124c-8537-489b-956e-22da455cbee8'}"]
+    (hbnb)
+    (hbnb) User.all()
+    ["[User] (8f2d75c8-fb82-48e1-8ae5-2544c909a9fe){'updated_at': datetime.datetim
+    e(2019, 2, 17, 21, 44, 44, 428413), 'created_at': datetime.datetime(2019, 2, 17
+    , 21, 44, 44, 428413), 'id': '8f2d75c8-fb82-48e1-8ae5-2544c909a9fe'}", "[User] 
+    (b742dbc3-f4bf-425e-b1d4-165f52c6ff81){'updated_at': datetime.datetime(2019, 2
+    , 17, 21, 44, 15, 974608), 'created_at': datetime.datetime(2019, 2, 17, 21, 44,
+    15, 974608), 'id': 'b742dbc3-f4bf-425e-b1d4-165f52c6ff81'}"]
+    (hbnb) 
     (hbnb) all
+    ["[User] (8f2d75c8-fb82-48e1-8ae5-2544c909a9fe){'updated_at': datetime.datetim
+    e(2019, 2, 17, 21, 44, 44, 428413), 'created_at': datetime.datetime(2019, 2, 17
+    , 21, 44, 44, 428413), 'id': '8f2d75c8-fb82-48e1-8ae5-2544c909a9fe'}", "[BaseMo
+    del] (450490fd-344e-47cf-8342-126244c2ba99){'updated_at': datetime.datetime(20
+    19, 2, 17, 21, 45, 5, 963516), 'created_at': datetime.datetime(2019, 2, 17, 21,
+    45, 5, 963516), 'id': '450490fd-344e-47cf-8342-126244c2ba99'}", "[User] (b742db
+    c3-f4bf-425e-b1d4-165f52c6ff81) {'updated_at': datetime.datetime(2019, 2, 17, 2
+    1, 44, 15, 974608), 'created_at': datetime.datetime(2019, 2, 17, 21, 44, 15, 97
+    4608), 'id': 'b742dbc3-f4bf-425e-b1d4-165f52c6ff81'}", "[BaseModel] (fce2124c-8
+    537-489b-956e-22da455cbee8) {'updated_at': datetime.datetime(2019, 2, 17, 21, 4
+    3, 56, 899348), 'created_at': datetime.datetime(2019, 2, 17, 21, 43, 56, 899348
+    ), 'id': 'fce2124c-8537-489b-956e-22da455cbee8'}"]
+    (hbnb) 
 
 ### Update
 
 Update an instance based on the class name and id:
 
     (hbnb) update BaseModel 123-123-123. user "holbertonschool"
+
+Updates a class instance based on a given id with a given key/value attribute pair or dictionary of attribute pairs. If update is called with a single key/value attribute pair, only "simple" attributes can be updated (ie. not id, created_at, and updated_at). However, any attribute can be updated by providing a dictionary.
+
+    $ ./console.py
+    (hbnb) create User
+    6f348019-0499-420f-8eec-ef0fdc863c02
+    (hbnb)
+    (hbnb) update User 6f348019-0499-420f-8eec-ef0fdc863c02 first_name "Holberton"
+    (hbnb) show User 6f348019-0499-420f-8eec-ef0fdc863c02
+    [User] (6f348019-0499-420f-8eec-ef0fdc863c02){'created_at': datetime.datetime(
+    2019, 2, 17, 21, 54, 39, 234382), 'first_name': 'Holberton', 'updated_at': date
+    time.datetime(2019, 2, 17, 21, 54, 39, 234382), 'id': '6f348019-0499-420f-8eec-
+    ef0fdc863c02'}
+    (hbnb)
+    (hbnb) User.update(6f348019-0499-420f-8eec-ef0fdc863c02, address, "98 Mission S
+    t")
+    (hbnb) User.show(6f348019-0499-420f-8eec-ef0fdc863c02)
+    [User] (6f348019-0499-420f-8eec-ef0fdc863c02){'created_at': datetime.datetime(
+    2019, 2, 17, 21, 54, 39, 234382), 'address': '98 Mission St', 'first_name': 'Ho
+    lberton', 'updated_at': datetime.datetime(2019, 2, 17, 21, 54, 39, 234382), 'id
+    ': '6f348019-0499-420f-8eec-ef0fdc863c02'}
+    (hbnb)
+    (hbnb) User.update(6f348019-0499-420f-8eec-ef0fdc863c02,{'email': 'holberton@h
+    olberton.com', 'last_name': 'School'})
+    [User] (6f348019-0499-420f-8eec-ef0fdc863c02){'email': 'holberton@holberton.co
+    m', 'first_name': 'Holberton', 'updated_at': datetime.datetime(2019, 2, 17, 21,
+    54, 39, 234382), 'address': '98 Mission St', 'last_name': 'School', 'id': '6f34
+    8019-0499-420f-8eec-ef0fdc863c02', 'created_at': datetime.datetime(2019, 2, 17,
+    21, 54, 39, 234382)}
+    (hbnb) 
 
 ### Quit 
 
