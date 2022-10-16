@@ -165,7 +165,7 @@ Prints the string representations of all instances of a given class. If no class
 
 Update an instance based on the class name and id:
 
-    (hbnb) update BaseModel 123-123-123. user "holbertonschool"
+    (hbnb) update User 6f348019-0499-420f-8eec-ef0fdc863c02 first_name "Holberton"
 
 Updates a class instance based on a given id with a given key/value attribute pair or dictionary of attribute pairs. If update is called with a single key/value attribute pair, only "simple" attributes can be updated (ie. not id, created_at, and updated_at). However, any attribute can be updated by providing a dictionary.
 
