@@ -4,7 +4,7 @@
 
 
 ---
-The AirBnB clone is for us to put in practice what we've learned so far, inheritance, classes, opening and closing files and changing them.
+ The AirBnB clone is for us to put in practice what we've learned so far, inheritance, classes, opening and closing files and changing them.
 ---
 # _The Console_:
  The AirBnb console(command interpreter) is to manipulate a powerful storage system, serializing and deserializing json files. The console can be run in two different modes, interactive mode and non-interactive mode.
