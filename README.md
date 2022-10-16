@@ -82,6 +82,7 @@ Creates a new instance of a given class. The class' ID is printed and the instan
     
     (hbnb) show BaseModel 123-123-123.
 Prints the string representation of a class instance based on a given id.
+
     $ ./console.py
     (hbnb) create User
     1e32232d-5a63-4d92-8092-ac3240b29f46
