@@ -3,7 +3,8 @@
 from models.base_model import BaseModel
 
 class State(BaseModel):
-    name = "inherited class State from BaseModel"
+    """inherited class State from BaseModelv"""
+    name = ""
     
     def __init__(self, *args, **kwargs):
         """constructor"""
