@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <title>AirBnB</title>
+    <meta charset="utf-8">
     <style>
         body {
             margin: 0;
@@ -18,17 +20,25 @@
             background-color: #00FF00;
             height: 60px;
             width: 100%;
-            text-align: center;
-            line-height: 50px;
-            position: absolute;
+            position: fixed;
             bottom: 0px;
+        }
+        .centered_text {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 
 <body>
     <header></header>
-    <footer></footer>
+    <footer>
+        <div class="centered_text">
+            Holberton School
+        </div>
+    </footer>
 </body>
 
 </html>
