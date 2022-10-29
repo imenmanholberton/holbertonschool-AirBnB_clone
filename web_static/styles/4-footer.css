@@ -1,0 +1,14 @@
+footer {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    border-top: 1px solid #CCCCCC;
+}
+.centered_text {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
